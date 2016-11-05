@@ -26,7 +26,7 @@ public class Chat implements PacketType {
         	c.sendMessage("You are muted for breaking a rule.");
             return;
         }
-		ReportHandler.addText(c.playerName, c.getChatText(), packetSize - 2);
+		
         if (!Connection.isMuted(c))
         {
             c.setChatTextUpdateRequired(true);

@@ -39,7 +39,6 @@ import main.model.players.packets.MoveItems;
 import main.model.players.packets.PickupItem;
 import main.model.players.packets.PrivateMessaging;
 import main.model.players.packets.RemoveItem;
-import main.model.players.packets.Report;
 import main.model.players.packets.SilentPacket;
 import main.model.players.packets.Trade;
 import main.model.players.packets.Walking;
@@ -75,7 +74,6 @@ public class PacketHandler {
 		packetId[238] = u;
 		packetId[150] = u;
 		packetId[253] = new ItemClick2OnGroundItem();
-		packetId[218] = new Report();
 		packetId[40] = new Dialogue();
 		ClickObject co = new ClickObject();
 		packetId[132] = co;

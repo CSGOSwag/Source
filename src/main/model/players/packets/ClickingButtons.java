@@ -176,24 +176,24 @@ public class ClickingButtons implements PacketType {
 		
 //end clan
 			
-		case 226170:
-		case 89236:
+              
+		case 89236: //Deposit Equipment in bank
+		if(c.isBanking) {
 		for (int i = 0; i < c.playerEquipment.length; i++) {
 			int itemId = c.playerEquipment[i];
 			int itemAmount = c.playerEquipmentN[i];
 			c.getItems().removeItem(itemId, i);
 			c.getItems().bankItem(itemId, c.getItems().getItemSlot(itemId), itemAmount);
 		}
-		c.sendMessage("You successfully bank all your worn items.");
+		}
 		break;
 
-		case 89223: // Bank All
-		case 226162:
-		case 86000:
+		case 86000: //Deposit Inventory in bank
+			if(c.isBanking) {
 			for (int i = 0; i < c.playerItems.length; i++) {
 				c.getItems().bankItem(c.playerItems[i], i, c.playerItemsN[i]);
 			}
-			c.sendMessage("You successfully bank your inventory.");
+			}
 			break;
 
 		/* Quest Tab by Ardi */
@@ -2186,6 +2186,7 @@ public class ClickingButtons implements PacketType {
 				c.sendMessage("High Priest teleported you to @red@Desert Pyramid@bla@.");
 				c.getPA().closeAllWindows();
 			}
+			
 			if (c.dialogueAction == 508) {
 				c.getDH().sendDialogues(1027, 925);
 				return;
@@ -2263,11 +2264,6 @@ public class ClickingButtons implements PacketType {
 				c.getPA().closeAllWindows();
 			}
 
-			if (c.newPlayerAct == 1) {
-				c.newPlayerAct = 0;
-				c.sendMessage("@red@There is nothing to do in Crandor, i must teleport home and start playing Zaros.");
-				c.getPA().removeAllWindows();
-			}
 			if (c.doricOption2) {
 				c.getDH().sendDialogues(309, 284);
 				c.doricOption2 = false;
